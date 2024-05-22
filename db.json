@@ -1,0 +1,20 @@
+{
+	"users": [
+		{
+			"email": "admin@email.com",
+			"password": "$2a$10$ErWWNARnMMyhL28ON/wRuu7o34gWttJOxOs7pVVtsj9/.COHEwR7u",
+			"display_name": "Admin",
+			"is_admin": true,
+			"id": 1
+		},
+		{
+			"email": "staff01@email.com",
+			"password": "$2a$10$9yVLOV5HgHZMfA1ubUrAW.UbG6vYGuEKYmT8ixj7Zm3UB4VeLorqm",
+			"department_code": 1,
+			"company_code": 1,
+			"display_name": "Staff 01",
+			"is_admin": false,
+			"id": 2
+		}
+	]
+}
