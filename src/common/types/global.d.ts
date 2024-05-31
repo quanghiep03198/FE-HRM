@@ -1,11 +1,11 @@
-import HttpStatus from "@/common/constants/http-status";
-import { icons } from "lucide-react";
-import { UserRoleEnum } from "../constants/enums";
-import { Control, FieldValues, Path } from "react-hook-form";
+import HttpStatus from '@/common/constants/http-status';
+import { icons } from 'lucide-react';
+import { UserRoleEnum } from '../constants/enums';
+import { Control, FieldValues, Path } from 'react-hook-form';
 
 declare global {
 	type HttpResponse<T> = {
-		status: "success" | "error";
+		status: 'success' | 'error';
 		message: string;
 		statusCode: HttpStatus;
 		metadata?: T;
@@ -38,7 +38,7 @@ declare global {
 		totalPages: number;
 	};
 
-	type PaginationPayload = Record<"page" | "limit", number>;
+	type PaginationPayload = Record<'page' | 'limit', number>;
 
 	type OptionalPagination<T> = Pagination<T> | Array<T>;
 }

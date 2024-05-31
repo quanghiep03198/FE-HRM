@@ -69,8 +69,13 @@ export const StyleDropdownMenu: React.FC<{ editor: Editor }> = ({ editor }) => {
 		<DropdownMenu>
 			<Tooltip content='Kiểu'>
 				<DropdownMenuTrigger asChild>
-					<Button type='button' variant='outline' size='sm' className='h-8 gap-x-2'>
-						<Icon name={getCurrentStyle(editor).icon} /> {getCurrentStyle(editor).label}
+					<Button
+						type='button'
+						variant='outline'
+						size='sm'
+						className='h-8 gap-x-2'>
+						<Icon name={getCurrentStyle(editor).icon} />{' '}
+						{getCurrentStyle(editor).label}
 					</Button>
 				</DropdownMenuTrigger>
 			</Tooltip>
@@ -89,7 +94,10 @@ export const StyleDropdownMenu: React.FC<{ editor: Editor }> = ({ editor }) => {
 							.run();
 					}}>
 					{PresetStyles.map((style) => (
-						<DropdownMenuRadioItem key={style.value} value={String(style.value)} className='gap-x-2'>
+						<DropdownMenuRadioItem
+							key={style.value}
+							value={String(style.value)}
+							className='gap-x-2'>
 							<Icon name={style.icon} /> {style.label}
 						</DropdownMenuRadioItem>
 					))}

@@ -1,21 +1,22 @@
-import { ThemeProvider } from "@/components/providers/theme-provider";
-import { Toaster } from "@/components/ui/@shadcn/sonner";
-import { persistor, store } from "@/store/store";
-import { Outlet, createRootRoute } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
+import { ThemeProvider } from '@/components/providers/theme-provider';
+import { Toaster } from '@/components/ui/@shadcn/sonner';
+import { Outlet, createRootRoute } from '@tanstack/react-router';
+import NotFound from './_components/_errors/-not-found';
+import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 
 export const Route = createRootRoute({
-	component: () => (
-		<Provider store={store}>
-			<PersistGate persistor={persistor}>
-				<ThemeProvider>
-					<Toaster />
-					<Outlet />
-				</ThemeProvider>
-			</PersistGate>
-			<TanStackRouterDevtools position='bottom-right' />
-		</Provider>
-	)
+	component: RootRoute,
+	notFoundComponent: NotFound
 });
+
+function RootRoute() {
+	return (
+		<>
+			<ThemeProvider>
+				<Toaster position='top-right' />
+				<Outlet />
+			</ThemeProvider>
+			<TanStackRouterDevtools />
+		</>
+	);
+}

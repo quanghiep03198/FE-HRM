@@ -1,6 +1,6 @@
-import { isEmpty } from "lodash";
-import { useEffect, useState } from "react";
-import { FieldValues, Path, PathValue, UseFormReturn } from "react-hook-form";
+import { isEmpty } from 'lodash';
+import { useEffect, useState } from 'react';
+import { FieldValues, Path, PathValue, UseFormReturn } from 'react-hook-form';
 import {
 	Editor,
 	FormControl,
@@ -8,13 +8,13 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage
-} from "..";
-import { BaseFieldControl } from "./hook-form";
-import FormTooltipLabel from "./form-tooltip-label";
+} from '..';
+import { BaseFieldControl } from './hook-form';
+import FormTooltipLabel from './form-tooltip-label';
 
 type EditorFieldControlProps<T extends FieldValues> = Omit<
 	BaseFieldControl<T>,
-	"control"
+	'control'
 > & {
 	form: UseFormReturn<T>;
 	errorMessage?: string;
@@ -25,12 +25,12 @@ export function EditorFieldControl<T extends FieldValues>({
 	label,
 	name,
 	defaultValue,
-	messageMode = "tooltip",
+	messageMode = 'tooltip',
 	errorMessage
 }: EditorFieldControlProps<T>) {
 	const [state, setState] = useState<{ value: string; isEmpty: boolean }>(
 		() => ({
-			value: defaultValue ?? "",
+			value: defaultValue ?? '',
 			isEmpty: isEmpty(defaultValue)
 		})
 	);
@@ -42,8 +42,8 @@ export function EditorFieldControl<T extends FieldValues>({
 	useEffect(() => {
 		if (state.isEmpty && form.formState.isSubmitted) {
 			form.setError(name, {
-				type: "required",
-				message: errorMessage ?? "Vui lòng nhập nội dung"
+				type: 'required',
+				message: errorMessage ?? 'Vui lòng nhập nội dung'
 			});
 		} else {
 			form.clearErrors(name);

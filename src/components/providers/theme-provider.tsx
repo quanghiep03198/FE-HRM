@@ -1,8 +1,8 @@
-import { Theme } from "@/common/constants/enums";
-import { useLocalStorage } from "@/common/hooks/use-storage";
-import { isJSON } from "@/common/utils/json";
-import _ from "lodash";
-import React, { createContext, useEffect } from "react";
+import { Theme } from '@/common/constants/enums';
+import { useLocalStorage } from '@/common/hooks/use-storage';
+import { isJSON } from '@/common/utils/json';
+import _ from 'lodash';
+import React, { createContext, useEffect } from 'react';
 
 declare type ThemeProviderProps = {
 	children: React.ReactNode;
@@ -21,7 +21,7 @@ const initialState: ThemeProviderState = {
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
 const defaultTheme = (() => {
-	const currentTheme = localStorage.getItem("theme");
+	const currentTheme = localStorage.getItem('theme');
 	return !!currentTheme && isJSON(currentTheme)
 		? JSON.parse(currentTheme)
 		: Theme.SYSTEM;
@@ -31,13 +31,13 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({
 	children,
 	...props
 }: ThemeProviderProps) => {
-	const [theme, setTheme] = useLocalStorage<Theme>("theme", defaultTheme);
+	const [theme, setTheme] = useLocalStorage<Theme>('theme', defaultTheme);
 
 	useEffect(() => {
 		const root = window.document.documentElement;
-		root.classList.remove("light", "dark");
-		if (theme === "system") {
-			const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+		root.classList.remove('light', 'dark');
+		if (theme === 'system') {
+			const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
 				.matches
 				? Theme.DARK
 				: Theme.LIGHT;

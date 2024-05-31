@@ -1,5 +1,5 @@
-import { cn } from "@/common/utils/cn";
-import { FieldValues, Path, PathValue, UseFormReturn } from "react-hook-form";
+import { cn } from '@/common/utils/cn';
+import { FieldValues, Path, PathValue, UseFormReturn } from 'react-hook-form';
 import {
 	Button,
 	Command,
@@ -19,10 +19,10 @@ import {
 	PopoverTrigger,
 	ScrollArea,
 	Typography
-} from "..";
-import { BaseFieldControl } from "./hook-form";
-import FormTooltipLabel from "./form-tooltip-label";
-import { useId } from "react";
+} from '..';
+import { BaseFieldControl } from './hook-form';
+import FormTooltipLabel from './form-tooltip-label';
+import { useId } from 'react';
 
 type ComboboxFieldControlProps<T extends FieldValues> = BaseFieldControl<T> & {
 	form: UseFormReturn<T>;
@@ -47,7 +47,7 @@ export function ComboboxFieldControl<T extends FieldValues>(
 		placeholder,
 		layout,
 		hidden,
-		messageMode = "tooltip",
+		messageMode = 'tooltip',
 		onInput,
 		onSelect
 	} = props;
@@ -63,8 +63,8 @@ export function ComboboxFieldControl<T extends FieldValues>(
 					<FormItem
 						className={cn({
 							hidden,
-							"grid grid-cols-[1fr_2fr] items-center gap-2 space-y-0":
-								layout === "horizontal"
+							'grid grid-cols-[1fr_2fr] items-center gap-2 space-y-0':
+								layout === 'horizontal'
 						})}>
 						<FormTooltipLabel
 							htmlFor={id}
@@ -81,8 +81,8 @@ export function ComboboxFieldControl<T extends FieldValues>(
 											id={id}
 											role='combobox'
 											className={cn(
-												"w-full justify-between hover:bg-background",
-												!field.value && "text-muted-foreground"
+												'w-full justify-between hover:bg-background',
+												!field.value && 'text-muted-foreground'
 											)}>
 											<Typography
 												variant='small'
@@ -129,8 +129,8 @@ export function ComboboxFieldControl<T extends FieldValues>(
 															name='Check'
 															className={cn(
 																option.value === field.value
-																	? "opacity-100"
-																	: "opacity-0"
+																	? 'opacity-100'
+																	: 'opacity-0'
 															)}
 														/>
 													</CommandItem>
@@ -144,7 +144,7 @@ export function ComboboxFieldControl<T extends FieldValues>(
 						{description && (
 							<FormDescription>{description}</FormDescription>
 						)}
-						{messageMode === "tooltip" && <FormMessage />}
+						{messageMode === 'tooltip' && <FormMessage />}
 					</FormItem>
 				);
 			}}

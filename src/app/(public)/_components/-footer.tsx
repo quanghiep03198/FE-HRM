@@ -1,4 +1,4 @@
-import { Box, Typography } from "@/components/ui";
+import { Box, Typography } from '@/components/ui';
 
 export default function Footer() {
 	return (

@@ -58,19 +58,32 @@ export const ComboboxFilter: React.FC<ComboboxFilterProps> = ({
 					<CommandInput placeholder={placeholder} className='h-9' />
 					<CommandEmpty>Không có kết quả phù hợp</CommandEmpty>
 					<CommandGroup>
-						<ScrollArea className='h-80 w-full' onWheel={(e) => e.stopPropagation()}>
+						<ScrollArea
+							className='h-80 w-full'
+							onWheel={(e) => e.stopPropagation()}>
 							{options.map((option) => (
 								<CommandItem
 									key={option.value}
 									value={option.value}
-									onSelect={(currentValue: (typeof options)[number]['value']) => {
-										setValue(currentValue === value ? '' : currentValue);
-										onChange(currentValue === value ? '' : currentValue);
+									onSelect={(
+										currentValue: (typeof options)[number]['value']
+									) => {
+										setValue(
+											currentValue === value ? '' : currentValue
+										);
+										onChange(
+											currentValue === value ? '' : currentValue
+										);
 										setOpen(false);
 									}}>
 									{option.label}
 									<CheckIcon
-										className={cn('ml-auto h-4 w-4', value === option.value ? 'opacity-100' : 'opacity-0')}
+										className={cn(
+											'ml-auto h-4 w-4',
+											value === option.value
+												? 'opacity-100'
+												: 'opacity-0'
+										)}
 									/>
 								</CommandItem>
 							))}

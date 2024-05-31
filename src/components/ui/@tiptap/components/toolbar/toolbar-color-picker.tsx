@@ -27,7 +27,12 @@ type ColorPickerProps = {
 	type: 'textStyle' | 'highlight';
 };
 
-const ColorPicker: React.FC<ColorPickerProps> = ({ editor, label, icon, type }) => {
+const ColorPicker: React.FC<ColorPickerProps> = ({
+	editor,
+	label,
+	icon,
+	type
+}) => {
 	const [open, setOpen] = useState<boolean>(false);
 	const [currentColor, setCurrentColor] = useState<string | undefined>();
 
@@ -46,12 +51,17 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ editor, label, icon, type }) 
 			<DropdownMenu open={open} onOpenChange={setOpen}>
 				<Tooltip content={label}>
 					<DropdownMenuTrigger asChild>
-						<Button variant='outline' className='aspect-square h-8 w-8 flex-col gap-x-1.5' size='icon'>
+						<Button
+							variant='outline'
+							className='aspect-square h-8 w-8 flex-col gap-x-1.5'
+							size='icon'>
 							<Icon name={icon} />
 							<Box
 								className={cn('h-[4px] w-4/5 self-center', {
-									'!bg-foreground': !currentColor && type === 'textStyle',
-									'bg-transparent': !currentColor && type === 'highlight'
+									'!bg-foreground':
+										!currentColor && type === 'textStyle',
+									'bg-transparent':
+										!currentColor && type === 'highlight'
 								})}
 								style={{ backgroundColor: currentColor }}
 							/>
@@ -61,14 +71,18 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ editor, label, icon, type }) 
 				<DropdownMenuContent align='start'>
 					<DropdownMenuGroup>
 						<Box className='flex items-center justify-between'>
-							<DropdownMenuLabel className='flex items-center justify-between'>Preset colors</DropdownMenuLabel>
+							<DropdownMenuLabel className='flex items-center justify-between'>
+								Preset colors
+							</DropdownMenuLabel>
 							<Button
 								variant='ghost'
 								size='sm'
 								className='gap-x-2'
 								onClick={() => {
-									if (type === 'highlight') editor.commands.unsetHighlight();
-									if (type === 'textStyle') editor.commands.unsetColor();
+									if (type === 'highlight')
+										editor.commands.unsetHighlight();
+									if (type === 'textStyle')
+										editor.commands.unsetColor();
 								}}>
 								<Icon name='Eraser' /> Không
 							</Button>
@@ -78,8 +92,19 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ editor, label, icon, type }) 
 							{PresetColors.map((color) => (
 								<DropdownMenuItem
 									key={color}
-									style={{ width: 18, height: 18, padding: 1, borderColor: color, backgroundColor: color }}
-									className={cn({ 'border-1 border-solid': editor.isActive('textStyle', { color: color }) })}
+									style={{
+										width: 18,
+										height: 18,
+										padding: 1,
+										borderColor: color,
+										backgroundColor: color
+									}}
+									className={cn({
+										'border-1 border-solid': editor.isActive(
+											'textStyle',
+											{ color: color }
+										)
+									})}
 									onClick={() => handleSelectColor(color)}
 								/>
 							))}
@@ -90,7 +115,13 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ editor, label, icon, type }) 
 						<DropdownMenuLabel asChild onClick={() => setOpen(false)}>
 							<Label
 								htmlFor='color-picker'
-								className={cn(buttonVariants({ variant: 'ghost', size: 'sm', className: 'gap-x-2' }))}>
+								className={cn(
+									buttonVariants({
+										variant: 'ghost',
+										size: 'sm',
+										className: 'gap-x-2'
+									})
+								)}>
 								<Icon name='PlusCircle' /> Tùy chỉnh
 							</Label>
 						</DropdownMenuLabel>

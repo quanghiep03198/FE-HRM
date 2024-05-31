@@ -4,7 +4,15 @@ import { Editor } from '@tiptap/react';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Button, Dialog, DialogContent, DialogHeader, Form, Input, InputFieldControl } from '../../..';
+import {
+	Button,
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	Form,
+	Input,
+	InputFieldControl
+} from '../../..';
 import tw from 'tailwind-styled-components';
 import { EditorContext } from '../../context/editor-context';
 
@@ -31,7 +39,9 @@ const SetImageForm: React.FC<SetImageFormProps> = ({ editor }) => {
 		setImageFormOpen(false);
 	};
 
-	const handleInsertImageFromDevice = async (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleInsertImageFromDevice = async (
+		e: React.ChangeEvent<HTMLInputElement>
+	) => {
 		if (!e.target.files?.[0]) return;
 		const url = (await convertBase64(e.target.files?.[0])) as string;
 		editor.commands.setImage({ src: url });
@@ -39,7 +49,12 @@ const SetImageForm: React.FC<SetImageFormProps> = ({ editor }) => {
 
 	return (
 		<>
-			<Input type='file' className='hidden' id='editor-image-input' onChange={handleInsertImageFromDevice} />
+			<Input
+				type='file'
+				className='hidden'
+				id='editor-image-input'
+				onChange={handleInsertImageFromDevice}
+			/>
 			<Dialog open={imageFormOpenState} onOpenChange={setImageFormOpen}>
 				<DialogContent className='items-stretch'>
 					<DialogHeader className='text-left'>Chèn hình ảnh</DialogHeader>

@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { authApi } from "../apis/@auth";
+import { createSlice } from '@reduxjs/toolkit';
+import { authApi } from '../apis/@auth';
 
 const initialState = {
 	user: null,
@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export const authSlice = createSlice({
-	name: "auth",
+	name: 'auth',
 	initialState,
 	reducers: {
 		logout: () => {
@@ -19,7 +19,7 @@ export const authSlice = createSlice({
 		builder.addMatcher(
 			authApi.endpoints.login.matchFulfilled,
 			(_, action) => {
-				console.log("action.payload", action.payload);
+				console.log('action.payload', action.payload);
 				return { ...action.payload, authenticated: true };
 			}
 		);

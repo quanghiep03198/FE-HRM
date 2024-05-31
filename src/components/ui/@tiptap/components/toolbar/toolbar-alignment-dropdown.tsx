@@ -42,7 +42,9 @@ const PresetAlignments: Array<AlignmentOption> = [
 	}
 ];
 
-const getCurrentAlignment = (editor: Editor): Omit<AlignmentOption, 'label'> => {
+const getCurrentAlignment = (
+	editor: Editor
+): Omit<AlignmentOption, 'label'> => {
 	switch (true) {
 		case editor.isActive({ textAlign: 'left' }):
 			return {
@@ -73,13 +75,18 @@ const getCurrentAlignment = (editor: Editor): Omit<AlignmentOption, 'label'> => 
 	}
 };
 
-export const AlignmentDropdownMenu: React.FC<{ editor: Editor }> = ({ editor }) => {
+export const AlignmentDropdownMenu: React.FC<{ editor: Editor }> = ({
+	editor
+}) => {
 	const currentAlignment = getCurrentAlignment(editor);
 
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant='outline' size='icon' className='aspect-square h-8 w-8'>
+				<Button
+					variant='outline'
+					size='icon'
+					className='aspect-square h-8 w-8'>
 					<Icon name={currentAlignment.icon} />
 				</Button>
 			</DropdownMenuTrigger>
@@ -93,9 +100,13 @@ export const AlignmentDropdownMenu: React.FC<{ editor: Editor }> = ({ editor }) 
 							<DropdownMenuRadioItem
 								key={option.value}
 								value={option.value}
-								className={cn('p-2 hover:bg-accent hover:text-accent-foreground [&>span]:hidden', {
-									'bg-secondary': currentAlignment.value === option.value
-								})}>
+								className={cn(
+									'p-2 hover:bg-accent hover:text-accent-foreground [&>span]:hidden',
+									{
+										'bg-secondary':
+											currentAlignment.value === option.value
+									}
+								)}>
 								<Icon name={option.icon} size={16} />
 							</DropdownMenuRadioItem>
 						</Tooltip>

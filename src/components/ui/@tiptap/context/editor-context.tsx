@@ -10,8 +10,14 @@ export const EditorContext = createContext<EditorContextType>({
 	setImageFormOpen: () => {}
 });
 
-export const EditorContextProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const EditorContextProvider: React.FC<React.PropsWithChildren> = ({
+	children
+}) => {
 	const [imageFormOpenState, setImageFormOpen] = useState<boolean>();
 
-	return <EditorContext.Provider value={{ imageFormOpenState, setImageFormOpen }}>{children}</EditorContext.Provider>;
+	return (
+		<EditorContext.Provider value={{ imageFormOpenState, setImageFormOpen }}>
+			{children}
+		</EditorContext.Provider>
+	);
 };

@@ -1,21 +1,21 @@
-import useQueryParams from "@/common/hooks/use-query-params";
+import useQueryParams from '@/common/hooks/use-query-params';
 import {
 	Button,
 	Form as FormProvider,
 	Icon,
 	InputFieldControl
-} from "@/components/ui";
-import axiosInstance from "@/configs/axios.config";
+} from '@/components/ui';
+import axiosInstance from '@/configs/axios.config';
 import {
 	RecoverPasswordFormValues,
 	recoverPasswordSchema
-} from "@/schemas/auth.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { AxiosError, AxiosResponse } from "axios";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import tw from "tailwind-styled-components";
+} from '@/schemas/auth.schema';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { AxiosError, AxiosResponse } from 'axios';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import tw from 'tailwind-styled-components';
 
 const VerifyEmailForm: React.FunctionComponent = () => {
 	const form = useForm<RecoverPasswordFormValues>({
@@ -26,10 +26,10 @@ const VerifyEmailForm: React.FunctionComponent = () => {
 	const handleResetPassword = async (
 		data: Required<RecoverPasswordFormValues>
 	) => {
-		toast.promise(axiosInstance.post("/reset-password", data), {
-			loading: "Đang xử lý yêu cầu ...",
-			success: (response: AxiosResponse["data"]) => {
-				setParam("step", +params.step + 1);
+		toast.promise(axiosInstance.post('/reset-password', data), {
+			loading: 'Đang xử lý yêu cầu ...',
+			success: (response: AxiosResponse['data']) => {
+				setParam('step', +params.step + 1);
 				return response?.message;
 			},
 			error: (error: AxiosError<HttpResponse<unknown>>) => {
@@ -50,7 +50,8 @@ const VerifyEmailForm: React.FunctionComponent = () => {
 					description='Verification code will be send to you email soon'
 				/>
 				<Button type='submit' className='gap-x-2'>
-					<Icon name='CircleCheck' /> Continue
+					Continue
+					<Icon name='ArrowRight' />
 				</Button>
 			</Form>
 		</FormProvider>

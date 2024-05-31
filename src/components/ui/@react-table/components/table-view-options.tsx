@@ -1,4 +1,4 @@
-import { Table } from "@tanstack/react-table";
+import { Table } from '@tanstack/react-table';
 import {
 	Button,
 	DropdownMenu,
@@ -8,8 +8,8 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 	Icon
-} from "../..";
-import Tooltip from "../../@override/tooltip";
+} from '../..';
+import Tooltip from '../../@override/tooltip';
 
 interface DataTableViewOptionsProps<TData> {
 	table: Table<TData>;
@@ -34,7 +34,7 @@ export function TableViewOptions<TData>({
 					.getAllColumns()
 					.filter(
 						(column) =>
-							typeof column.accessorFn !== "undefined" &&
+							typeof column.accessorFn !== 'undefined' &&
 							column.getCanHide()
 					)
 					.map((column) => {

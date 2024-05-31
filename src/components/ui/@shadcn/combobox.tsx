@@ -1,6 +1,6 @@
-import { cn } from "@/common/utils/cn";
-import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
+import { cn } from '@/common/utils/cn';
+import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons';
+import { useState } from 'react';
 import {
 	Button,
 	Command,
@@ -12,12 +12,12 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 	ScrollArea
-} from "..";
+} from '..';
 
 export type ComboboxProps = {
 	placeholder?: string;
 	className?: string;
-	options: Array<Record<"label" | "value", any>>;
+	options: Array<Record<'label' | 'value', any>>;
 	value?: string;
 	onChange?: (value: string) => void;
 } & React.ComponentProps<typeof PopoverContent>;
@@ -31,7 +31,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
 	...props
 }) => {
 	const [open, setOpen] = useState(false);
-	const [currentValue, setCurrentValue] = useState(value ?? "");
+	const [currentValue, setCurrentValue] = useState(value ?? '');
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
@@ -42,9 +42,9 @@ export const Combobox: React.FC<ComboboxProps> = ({
 					aria-expanded={open}
 					onClick={() => setOpen(true)}
 					className={cn(
-						"justify-between",
+						'justify-between',
 						{
-							"text-muted-foreground/50": !currentValue
+							'text-muted-foreground/50': !currentValue
 						},
 						className
 					)}>
@@ -64,24 +64,24 @@ export const Combobox: React.FC<ComboboxProps> = ({
 									key={option.value}
 									value={option.value}
 									onSelect={(
-										val: (typeof options)[number]["value"]
+										val: (typeof options)[number]['value']
 									) => {
 										setCurrentValue(
-											val === currentValue ? "" : currentValue
+											val === currentValue ? '' : currentValue
 										);
 										if (onChange)
 											onChange(
-												val === currentValue ? "" : currentValue
+												val === currentValue ? '' : currentValue
 											);
 										setOpen(false);
 									}}>
 									{option.label}
 									<CheckIcon
 										className={cn(
-											"ml-auto h-4 w-4",
+											'ml-auto h-4 w-4',
 											currentValue === option.value
-												? "opacity-100"
-												: "opacity-0"
+												? 'opacity-100'
+												: 'opacity-0'
 										)}
 									/>
 								</CommandItem>
@@ -95,5 +95,5 @@ export const Combobox: React.FC<ComboboxProps> = ({
 };
 
 Combobox.defaultProps = {
-	placeholder: "Search ..."
+	placeholder: 'Search ...'
 };

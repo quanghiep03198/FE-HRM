@@ -88,18 +88,18 @@ module.exports = {
 				spotlight: {
 					"0%": {
 						opacity: 0,
-						transform: "translate(-72%, -62%) scale(0.5)"
+						transform: "translate(-75%, -60%) scale(0.25)"
 					},
 					"100%": {
 						opacity: 1,
-						transform: "translate(-50%,-40%) scale(1)"
+						transform: "translate(-50%, -40%) scale(1)"
 					}
 				}
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
-				spotlight: "spotlight 1s ease .5s 1 forwards"
+				spotlight: "spotlight 1.5s ease 0.75s forwards"
 			}
 		}
 	},

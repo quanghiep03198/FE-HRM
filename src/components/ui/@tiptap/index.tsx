@@ -1,22 +1,22 @@
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import React, { memo, useState } from "react";
+import { useEditor, EditorContent } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
+import React, { memo, useState } from 'react';
 import {
 	Box,
 	ContextMenu,
 	ContextMenuContent,
 	ContextMenuTrigger,
 	ScrollArea
-} from "..";
-import BubbleMenu from "./components/bubble-menu";
-import CommonContextMenuItems from "./components/context-menu/common-context-menu-items";
-import ImageContextMenuItem from "./components/context-menu/image-context-menu-item";
-import LinkContextMenuItems from "./components/context-menu/link-context-menu-items";
-import TableContextMenuItems from "./components/context-menu/table-context-menu-items";
-import Toolbar from "./components/toolbar";
-import { extensions } from "./extensions";
-import { EditorContextProvider } from "./context/editor-context";
-import SetImageForm from "./components/image-form";
+} from '..';
+import BubbleMenu from './components/bubble-menu';
+import CommonContextMenuItems from './components/context-menu/common-context-menu-items';
+import ImageContextMenuItem from './components/context-menu/image-context-menu-item';
+import LinkContextMenuItems from './components/context-menu/link-context-menu-items';
+import TableContextMenuItems from './components/context-menu/table-context-menu-items';
+import Toolbar from './components/toolbar';
+import { extensions } from './extensions';
+import { EditorContextProvider } from './context/editor-context';
+import SetImageForm from './components/image-form';
 
 export interface EditorProps {
 	onUpdate: (state: { value: string; isEmpty: boolean }) => unknown;
@@ -38,7 +38,7 @@ export const Editor: React.FC<EditorProps> = memo(
 				extensions,
 				editorProps: {
 					attributes: {
-						class: "p-4 rounded-lg max-w-full max-h-full overflow-auto scrollbar-none border-none outline-none focus:outline-none focus:border-none min-h-[50vh] text-foreground bg-background prose prose-li:p-0"
+						class: 'p-4 rounded-lg max-w-full max-h-full overflow-auto scrollbar-none border-none outline-none focus:outline-none focus:border-none min-h-[50vh] text-foreground bg-background prose prose-li:p-0'
 					}
 				},
 				enableCoreExtensions: true,
@@ -65,14 +65,14 @@ export const Editor: React.FC<EditorProps> = memo(
 		) => {
 			const target = e.target as typeof e.currentTarget;
 			switch (true) {
-				case Boolean(target.closest("table")):
-					setContextMenuType("table");
+				case Boolean(target.closest('table')):
+					setContextMenuType('table');
 					break;
-				case Boolean(target.closest("a")):
-					setContextMenuType("a");
+				case Boolean(target.closest('a')):
+					setContextMenuType('a');
 					break;
-				case Boolean(target.closest("img")):
-					setContextMenuType("img");
+				case Boolean(target.closest('img')):
+					setContextMenuType('img');
 					break;
 
 				default:
@@ -98,13 +98,13 @@ export const Editor: React.FC<EditorProps> = memo(
 						</ContextMenuTrigger>
 						<ContextMenuContent className='min-w-[320px]'>
 							<CommonContextMenuItems editor={editor} />
-							{contextMenuType === "table" && (
+							{contextMenuType === 'table' && (
 								<TableContextMenuItems editor={editor} />
 							)}
-							{contextMenuType === "a" && (
+							{contextMenuType === 'a' && (
 								<LinkContextMenuItems editor={editor} />
 							)}
-							{contextMenuType === "img" && (
+							{contextMenuType === 'img' && (
 								<ImageContextMenuItem editor={editor} />
 							)}
 						</ContextMenuContent>
@@ -118,6 +118,6 @@ export const Editor: React.FC<EditorProps> = memo(
 );
 
 Editor.defaultProps = {
-	content: "",
-	id: "editor"
+	content: '',
+	id: 'editor'
 };

@@ -1,13 +1,13 @@
-import axiosInstance from "@/configs/axios.config";
-import type { BaseQueryFn } from "@reduxjs/toolkit/query";
-import type { AxiosError, AxiosRequestConfig } from "axios";
+import axiosInstance from '@/configs/axios.config';
+import type { BaseQueryFn } from '@reduxjs/toolkit/query';
+import type { AxiosError, AxiosRequestConfig } from 'axios';
 
 declare type AxiosBaseQueryConfig = {
-	url: AxiosRequestConfig["url"];
-	method: AxiosRequestConfig["method"];
-	data?: AxiosRequestConfig["data"];
-	params?: AxiosRequestConfig["params"];
-	headers?: AxiosRequestConfig["headers"];
+	url: AxiosRequestConfig['url'];
+	method: AxiosRequestConfig['method'];
+	data?: AxiosRequestConfig['data'];
+	params?: AxiosRequestConfig['params'];
+	headers?: AxiosRequestConfig['headers'];
 };
 const axiosBaseQuery =
 	(): BaseQueryFn<AxiosBaseQueryConfig, unknown, unknown> =>

@@ -14,49 +14,70 @@ const TableContextMenuItems: React.FC<{ editor: Editor }> = ({ editor }) => {
 		);
 	}, [editor]);
 
-	const canMergeCell = useMemo(() => editor.view.state.selection.ranges.length > 1, [editor]);
+	const canMergeCell = useMemo(
+		() => editor.view.state.selection.ranges.length > 1,
+		[editor]
+	);
 
 	return (
 		<Fragment>
 			<ContextMenuSeparator />
-			<ContextMenuItem className='gap-x-2' onClick={() => editor.commands.addRowBefore()}>
+			<ContextMenuItem
+				className='gap-x-2'
+				onClick={() => editor.commands.addRowBefore()}>
 				<Icon name='Plus' />
 				Chèn hàng bên trên
 			</ContextMenuItem>
-			<ContextMenuItem className='gap-x-2' onClick={() => editor.commands.addRowAfter()}>
+			<ContextMenuItem
+				className='gap-x-2'
+				onClick={() => editor.commands.addRowAfter()}>
 				<Icon name='Plus' />
 				Chèn hàng bên dưới
 			</ContextMenuItem>
-			<ContextMenuItem className='gap-x-2' onClick={() => editor.commands.addColumnBefore()}>
+			<ContextMenuItem
+				className='gap-x-2'
+				onClick={() => editor.commands.addColumnBefore()}>
 				<Icon name='Plus' />
 				Chèn cột bên trái
 			</ContextMenuItem>
-			<ContextMenuItem className='gap-x-2' onClick={() => editor.commands.addColumnAfter()}>
+			<ContextMenuItem
+				className='gap-x-2'
+				onClick={() => editor.commands.addColumnAfter()}>
 				<Icon name='Plus' />
 				Chèn cột bên phải
 			</ContextMenuItem>
 			<ContextMenuSeparator />
-			<ContextMenuItem className='gap-x-2' onClick={() => editor.commands.deleteRow()}>
+			<ContextMenuItem
+				className='gap-x-2'
+				onClick={() => editor.commands.deleteRow()}>
 				<Icon name='Trash2' />
 				Xóa hàng
 			</ContextMenuItem>
-			<ContextMenuItem className='gap-x-2' onClick={() => editor.commands.deleteColumn()}>
+			<ContextMenuItem
+				className='gap-x-2'
+				onClick={() => editor.commands.deleteColumn()}>
 				<Icon name='Trash2' />
 				Xóa cột
 			</ContextMenuItem>
-			<ContextMenuItem className='gap-x-2' onClick={() => editor.commands.deleteTable()}>
+			<ContextMenuItem
+				className='gap-x-2'
+				onClick={() => editor.commands.deleteTable()}>
 				<Icon name='Trash2' />
 				Xóa bảng
 			</ContextMenuItem>
 			{(canMergeCell || canSplitMergedCell) && <ContextMenuSeparator />}
 			{editor.view.state.selection.ranges.length > 1 && (
-				<ContextMenuItem className='gap-x-2' onClick={() => editor.commands.mergeCells()}>
+				<ContextMenuItem
+					className='gap-x-2'
+					onClick={() => editor.commands.mergeCells()}>
 					<Icon name='FoldHorizontal' />
 					Hợp nhất ô
 				</ContextMenuItem>
 			)}
 			{canSplitMergedCell && (
-				<ContextMenuItem className='gap-x-2' onClick={() => editor.commands.splitCell()}>
+				<ContextMenuItem
+					className='gap-x-2'
+					onClick={() => editor.commands.splitCell()}>
 					<Icon name='UnfoldHorizontal' />
 					Hủy hợp nhất ô
 				</ContextMenuItem>

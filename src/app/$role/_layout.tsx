@@ -1,9 +1,9 @@
-import { Outlet, createFileRoute, notFound } from "@tanstack/react-router";
-import Navbar from "../_components/_layout.partials/-navbar";
-import Sidebar from "../_components/_layout.partials/-sidebar";
-import { UserRoleEnum } from "@/common/constants/enums";
+import { Outlet, createFileRoute, notFound } from '@tanstack/react-router';
+import Navbar from '../_components/_partials/-navbar';
+import Sidebar from '../_components/_partials/-sidebar';
+import { UserRoleEnum } from '@/common/constants/enums';
 
-export const Route = createFileRoute("/$role/_layout")({
+export const Route = createFileRoute('/$role/_layout')({
 	loader: ({ params }) => {
 		if (
 			!Object.values(UserRoleEnum)

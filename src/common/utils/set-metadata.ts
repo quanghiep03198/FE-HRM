@@ -8,7 +8,7 @@ export function setMetadata({
 	description,
 	keywords = []
 }: Metadata): void {
-	const titleTag = document.querySelector("title");
+	const titleTag = document.querySelector('title');
 	const descriptionMetaTag = document.querySelector(
 		"meta[name='description']"
 	);
@@ -18,9 +18,9 @@ export function setMetadata({
 		titleTag.innerText = String(title);
 	}
 	if (descriptionMetaTag) {
-		descriptionMetaTag.setAttribute("content", String(description));
+		descriptionMetaTag.setAttribute('content', String(description));
 	}
 	if (keywordsMetaTag && Array.isArray(keywords)) {
-		keywordsMetaTag.setAttribute("content", keywords.join(","));
+		keywordsMetaTag.setAttribute('content', keywords.join(','));
 	}
 }

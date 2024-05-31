@@ -13,7 +13,6 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './app/__root'
-import { Route as R404Import } from './app/404'
 import { Route as publicIndexImport } from './app/(public)/index'
 import { Route as RoleLayoutImport } from './app/$role/_layout'
 import { Route as authRecoverPasswordIndexImport } from './app/(auth)/recover-password/index'
@@ -33,11 +32,6 @@ const RoleLayoutDashboardIndexLazyImport = createFileRoute(
 
 const RoleRoute = RoleImport.update({
   path: '/$role',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const R404Route = R404Import.update({
-  path: '/404',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -81,10 +75,6 @@ const RoleLayoutDashboardIndexLazyRoute =
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/404': {
-      preLoaderRoute: typeof R404Import
-      parentRoute: typeof rootRoute
-    }
     '/$role': {
       preLoaderRoute: typeof RoleImport
       parentRoute: typeof rootRoute
@@ -119,7 +109,6 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  R404Route,
   RoleRoute.addChildren([
     RoleLayoutRoute.addChildren([
       RoleLayoutDashboardIndexLazyRoute,

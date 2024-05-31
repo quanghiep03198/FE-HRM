@@ -59,7 +59,8 @@ const Toolbar: React.FC<ToolbarPluginProps> = ({ editor }) => {
 							variant='outline'
 							size='icon'
 							className={cn('aspect-square h-8 w-8', {
-								'bg-accent text-accent-foreground': editor.isActive('bold')
+								'bg-accent text-accent-foreground':
+									editor.isActive('bold')
 							})}
 							onClick={() => editor.chain().focus().toggleBold().run()}>
 							<Icon name='Bold' />
@@ -72,9 +73,12 @@ const Toolbar: React.FC<ToolbarPluginProps> = ({ editor }) => {
 							variant='outline'
 							size='icon'
 							className={cn('aspect-square h-8 w-8', {
-								'bg-accent text-accent-foreground': editor.isActive('blockquote')
+								'bg-accent text-accent-foreground':
+									editor.isActive('blockquote')
 							})}
-							onClick={() => editor.chain().focus().toggleBlockquote().run()}>
+							onClick={() =>
+								editor.chain().focus().toggleBlockquote().run()
+							}>
 							<Icon name='Quote' size={14} />
 						</Button>
 					</Tooltip>
@@ -85,9 +89,12 @@ const Toolbar: React.FC<ToolbarPluginProps> = ({ editor }) => {
 							variant='outline'
 							size='icon'
 							className={cn('aspect-square h-8 w-8', {
-								'bg-accent text-accent-foreground': editor.isActive('italic')
+								'bg-accent text-accent-foreground':
+									editor.isActive('italic')
 							})}
-							onClick={() => editor.chain().focus().toggleItalic().run()}>
+							onClick={() =>
+								editor.chain().focus().toggleItalic().run()
+							}>
 							<Icon name='Italic' />
 						</Button>
 					</Tooltip>
@@ -98,7 +105,8 @@ const Toolbar: React.FC<ToolbarPluginProps> = ({ editor }) => {
 							variant='outline'
 							size='icon'
 							className={cn('aspect-square h-8 w-8', {
-								'bg-accent text-accent-foreground': editor.isActive('underline')
+								'bg-accent text-accent-foreground':
+									editor.isActive('underline')
 							})}
 							onClick={() => editor.commands.toggleUnderline()}>
 							<Icon name='Underline' />
@@ -111,14 +119,25 @@ const Toolbar: React.FC<ToolbarPluginProps> = ({ editor }) => {
 							variant='outline'
 							size='icon'
 							className={cn('aspect-square h-8 w-8', {
-								'bg-accent text-accent-foreground': editor.isActive('underline')
+								'bg-accent text-accent-foreground':
+									editor.isActive('underline')
 							})}
 							onClick={() => editor.commands.toggleCodeBlock()}>
 							<Icon name='Code' />
 						</Button>
 					</Tooltip>
-					<ColorPicker label='Màu văn bản' icon='Baseline' editor={editor} type='textStyle' />
-					<ColorPicker label='Highlight' icon='Highlighter' editor={editor} type='highlight' />
+					<ColorPicker
+						label='Màu văn bản'
+						icon='Baseline'
+						editor={editor}
+						type='textStyle'
+					/>
+					<ColorPicker
+						label='Highlight'
+						icon='Highlighter'
+						editor={editor}
+						type='highlight'
+					/>
 
 					{/* Toggle strike linethough */}
 					<Tooltip content='Gạch ngang'>
@@ -126,9 +145,12 @@ const Toolbar: React.FC<ToolbarPluginProps> = ({ editor }) => {
 							variant='outline'
 							size='icon'
 							className={cn('aspect-square h-8 w-8', {
-								'bg-accent text-accent-foreground': editor.isActive('strike')
+								'bg-accent text-accent-foreground':
+									editor.isActive('strike')
 							})}
-							onClick={() => editor.chain().focus().toggleStrike().run()}>
+							onClick={() =>
+								editor.chain().focus().toggleStrike().run()
+							}>
 							<Icon name='Strikethrough' className='h-4 w-4' />
 						</Button>
 					</Tooltip>
@@ -139,9 +161,12 @@ const Toolbar: React.FC<ToolbarPluginProps> = ({ editor }) => {
 							variant='outline'
 							size='icon'
 							className={cn('aspect-square h-8 w-8', {
-								'bg-accent text-accent-foreground': editor.isActive('orderedList')
+								'bg-accent text-accent-foreground':
+									editor.isActive('orderedList')
 							})}
-							onClick={() => editor.chain().focus().toggleOrderedList().run()}>
+							onClick={() =>
+								editor.chain().focus().toggleOrderedList().run()
+							}>
 							<Icon name='ListOrdered' />
 						</Button>
 					</Tooltip>
@@ -152,9 +177,12 @@ const Toolbar: React.FC<ToolbarPluginProps> = ({ editor }) => {
 							variant='outline'
 							size='icon'
 							className={cn('aspect-square h-8 w-8', {
-								'bg-accent text-accent-foreground': editor.isActive('bulletList')
+								'bg-accent text-accent-foreground':
+									editor.isActive('bulletList')
 							})}
-							onClick={() => editor.chain().focus().toggleBulletList().run()}>
+							onClick={() =>
+								editor.chain().focus().toggleBulletList().run()
+							}>
 							<Icon name='List' />
 						</Button>
 					</Tooltip>

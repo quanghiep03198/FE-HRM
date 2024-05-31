@@ -1,6 +1,7 @@
-import LanguaguesSelect from "@/app/_components/_shared/-languages-select";
-import ThemeSelect from "@/app/_components/_shared/-theme-toggle";
-import { cn } from "@/common/utils/cn";
+import LanguaguesSelect from '@/components/shared/languages-select';
+import ThemeSelect from '@/components/shared/theme-toggle';
+import Resources from '@/common/types/resources';
+import { cn } from '@/common/utils/cn';
 import {
 	Badge,
 	Box,
@@ -14,30 +15,38 @@ import {
 	Icon,
 	Typography,
 	buttonVariants
-} from "@/components/ui";
-import { Link } from "@tanstack/react-router";
-import { memo } from "react";
+} from '@/components/ui';
+import { Link } from '@tanstack/react-router';
+import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const navigationLinks = [
+type NaviationLink = {
+	title: keyof Resources['home.ns']['navigation'];
+	href: string;
+};
+
+const navigationLinks: Array<NaviationLink> = [
 	{
-		title: "Features",
-		href: "outstanding-features"
+		title: 'features',
+		href: 'outstanding-features'
 	},
 	{
-		title: "Support",
-		href: "support"
+		title: 'support',
+		href: 'support'
 	},
 	{
-		title: "FAQs",
-		href: "faqs"
+		title: 'faqs',
+		href: 'faqs'
 	},
 	{
-		title: "Contact",
-		href: "contact"
+		title: 'contact',
+		href: 'contact'
 	}
 ];
 
 const Header: React.FunctionComponent = () => {
+	const { t } = useTranslation('home.ns', { keyPrefix: 'navigation' });
+
 	return (
 		<Box className='sticky top-0 z-50 h-16 bg-opacity-85 backdrop-blur-xl'>
 			<Box
@@ -52,7 +61,7 @@ const Header: React.FunctionComponent = () => {
 						i-HRM
 					</Link>
 					<Badge variant='default' className='select-none'>
-						v1.1.0
+						{import.meta.env.VITE_APP_VERSION}
 					</Badge>
 				</Box>
 
@@ -64,11 +73,11 @@ const Header: React.FunctionComponent = () => {
 							key={index}
 							className={cn(
 								buttonVariants({
-									variant: "link",
-									className: "text-foreground"
+									variant: 'link',
+									className: 'text-foreground'
 								})
 							)}>
-							{item.title}
+							{t(item.title)}
 						</Link>
 					))}
 				</Box>
@@ -79,8 +88,8 @@ const Header: React.FunctionComponent = () => {
 					<Link
 						to='/login'
 						className={buttonVariants({
-							variant: "ghost",
-							className: "gap-x-2"
+							variant: 'ghost',
+							className: 'gap-x-2'
 						})}>
 						Log in
 						<Icon
@@ -112,7 +121,9 @@ function MenuDropdown() {
 						<Typography className='text-xs font-bold tracking-widest'>
 							i-HRM
 						</Typography>
-						<Badge variant='default'>v1.1.0</Badge>
+						<Badge variant='default'>
+							{import.meta.env.VITE_APP_VERSION}
+						</Badge>
 					</Link>
 				</DropdownMenuLabel>
 				<DropdownMenuSeparator />

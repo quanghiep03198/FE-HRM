@@ -19,7 +19,10 @@ export const TableContext = createContext<TableContext>({
 	handleScroll: () => {}
 });
 
-export const TableProvider: React.FC<TableProviderProps> = ({ areAllFiltersCleared, children }) => {
+export const TableProvider: React.FC<TableProviderProps> = ({
+	areAllFiltersCleared,
+	children
+}) => {
 	const [isScrolling, setIsScrolling] = useState(false);
 	const [isFilterOpened, setIsFilterOpened] = useState(false);
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -34,7 +37,13 @@ export const TableProvider: React.FC<TableProviderProps> = ({ areAllFiltersClear
 
 	return (
 		<TableContext.Provider
-			value={{ isScrolling, areAllFiltersCleared, isFilterOpened, setIsFilterOpened, handleScroll }}>
+			value={{
+				isScrolling,
+				areAllFiltersCleared,
+				isFilterOpened,
+				setIsFilterOpened,
+				handleScroll
+			}}>
 			{children}
 		</TableContext.Provider>
 	);

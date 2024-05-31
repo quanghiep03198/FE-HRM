@@ -1,4 +1,4 @@
-import { FieldValues } from "react-hook-form";
+import { FieldValues } from 'react-hook-form';
 
 export interface BaseFieldControl<T extends FieldValues> {
 	name: Path<T>;
@@ -9,6 +9,6 @@ export interface BaseFieldControl<T extends FieldValues> {
 	placeholder?: string;
 	defaultValue?: string;
 	className?: string;
-	layout?: "vertical" | "horizontal";
-	messageMode?: "tooltip" | "text";
+	layout?: 'vertical' | 'horizontal';
+	messageMode?: 'tooltip' | 'text';
 }

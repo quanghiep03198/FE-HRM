@@ -1,5 +1,5 @@
-import { useNavigate, useSearch } from "@tanstack/react-router";
-import _ from "lodash";
+import { useNavigate, useSearch } from '@tanstack/react-router';
+import _ from 'lodash';
 
 export default function useQueryParams(): [
 	Record<string, string>,

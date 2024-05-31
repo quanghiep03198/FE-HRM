@@ -1,12 +1,12 @@
-import { Box, Icon, Typography } from "@/components/ui";
-import { Link } from "@tanstack/react-router";
-import tw from "tailwind-styled-components";
+import { Box, Icon, Typography } from '@/components/ui';
+import { Link } from '@tanstack/react-router';
+import tw from 'tailwind-styled-components';
 
 export type StepItem = {
 	index: number;
 	name: string;
-	href: React.ComponentProps<typeof Link>["to"];
-	status: "current" | "upcoming" | "completed";
+	href: React.ComponentProps<typeof Link>['search'];
+	status: 'current' | 'upcoming' | 'completed';
 };
 
 export const Steps: React.FC<{ data: Array<StepItem> }> = ({ data }) => {
@@ -15,9 +15,9 @@ export const Steps: React.FC<{ data: Array<StepItem> }> = ({ data }) => {
 			<StepList role='list'>
 				{data.map((step, stepIndex) => (
 					<Step key={step.name} className='relative flex flex-1'>
-						{step.status === "completed" ? (
+						{step.status === 'completed' ? (
 							<Link
-								to={step.href}
+								search={step.href}
 								className='group pointer-events-none flex w-full items-center'>
 								<span className='flex items-center px-6 py-4 text-sm font-medium'>
 									<span className='flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary group-hover:bg-primary/80'>
@@ -33,9 +33,9 @@ export const Steps: React.FC<{ data: Array<StepItem> }> = ({ data }) => {
 									</span>
 								</span>
 							</Link>
-						) : step.status === "current" ? (
+						) : step.status === 'current' ? (
 							<Link
-								to={step.href}
+								search={step.href}
 								className='pointer-events-none flex items-center px-6 py-4 text-sm font-medium'
 								aria-current='step'>
 								<Box className='flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-primary'>
@@ -52,7 +52,7 @@ export const Steps: React.FC<{ data: Array<StepItem> }> = ({ data }) => {
 							</Link>
 						) : (
 							<Link
-								to={step.href}
+								search={step.href}
 								className='group pointer-events-none flex items-center'>
 								<span className='flex items-center px-6 py-4 text-sm font-medium'>
 									<span className='flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 duration-200 group-hover:border-muted-foreground'>

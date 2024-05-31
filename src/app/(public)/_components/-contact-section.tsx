@@ -5,21 +5,21 @@ import {
 	Icon,
 	TextareaFieldControl,
 	Typography
-} from "@/components/ui";
-import { InputFieldControl } from "@/components/ui/@hook-form/input-field-control";
-import { useRef } from "react";
-import { useForm } from "react-hook-form";
-import tw from "tailwind-styled-components";
-import { useScrollIntoView } from "..";
+} from '@/components/ui';
+import { InputFieldControl } from '@/components/ui/@hook-form/input-field-control';
+import { useRef } from 'react';
+import { useForm } from 'react-hook-form';
+import tw from 'tailwind-styled-components';
+import { useScrollIntoView } from '..';
 
 const ContactSection: React.FunctionComponent = () => {
 	const form = useForm();
 	const sectionRef = useRef<HTMLDivElement>(null);
 
 	useScrollIntoView({
-		hashMatch: "contact",
+		hashMatch: 'contact',
 		target: sectionRef.current,
-		block: "end"
+		block: 'end'
 	});
 
 	return (
@@ -98,6 +98,6 @@ const ContactSection: React.FunctionComponent = () => {
 	);
 };
 
-const Form = tw.form`grid grid-cols-2 gap-x-2 sm:p-4 sm:rounded-none sm:border-x-0 gap-y-6 max-w-2xl md:max-w-full w-full mx-auto bg-popover border border-border rounded-lg p-6`;
+const Form = tw.form`grid grid-cols-2 gap-x-2 sm:p-4 sm:rounded-none sm:border-x-0 gap-y-6 max-w-2xl md:max-w-full w-full mx-auto bg-popover/50 backdrop-blur-sm border border-border rounded-lg p-6`;
 
 export default ContactSection;

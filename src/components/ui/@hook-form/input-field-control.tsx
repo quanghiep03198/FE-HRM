@@ -1,4 +1,4 @@
-import { cn } from "@/common/utils/cn";
+import { cn } from '@/common/utils/cn';
 import React, {
 	forwardRef,
 	memo,
@@ -6,13 +6,13 @@ import React, {
 	useId,
 	useRef,
 	useState
-} from "react";
+} from 'react';
 import {
 	ControllerRenderProps,
 	FieldValues,
 	Path,
 	useFormContext
-} from "react-hook-form";
+} from 'react-hook-form';
 import {
 	Box,
 	FormControl,
@@ -20,10 +20,10 @@ import {
 	FormField,
 	FormItem,
 	FormMessage
-} from "..";
-import { Input, InputProps } from "../@shadcn/input";
-import FormTooltipLabel from "./form-tooltip-label";
-import { BaseFieldControl } from "./hook-form";
+} from '..';
+import { Input, InputProps } from '../@shadcn/input';
+import FormTooltipLabel from './form-tooltip-label';
+import { BaseFieldControl } from './hook-form';
 
 export type InputFieldControlProps<T extends FieldValues> =
 	BaseFieldControl<T> & InputProps;
@@ -45,13 +45,13 @@ export function InputFieldControl<T extends FieldValues>(
 		type,
 		hidden,
 		layout,
-		messageMode = "tooltip",
+		messageMode = 'tooltip',
 		onChange,
 		...restProps
 	} = props;
 
 	const id = useId();
-	const [value, setValue] = useState<string>("");
+	const [value, setValue] = useState<string>('');
 	const { getFieldState } = useFormContext();
 	const localRef = useRef<typeof Input.prototype>(null);
 	const resolvedRef = (ref ?? localRef) as typeof localRef;
@@ -62,7 +62,7 @@ export function InputFieldControl<T extends FieldValues>(
 	) => {
 		setValue(e.target.value);
 		if (onChange) onChange(e);
-		if (type === "file") {
+		if (type === 'file') {
 			field.onChange(e.target.files);
 		} else {
 			field.onChange(e);
@@ -81,8 +81,8 @@ export function InputFieldControl<T extends FieldValues>(
 					<FormItem
 						className={cn({
 							hidden,
-							"grid grid-cols-[1fr_2fr] items-center gap-2 space-y-0":
-								layout === "horizontal"
+							'grid grid-cols-[1fr_2fr] items-center gap-2 space-y-0':
+								layout === 'horizontal'
 						})}>
 						<FormTooltipLabel
 							htmlFor={id}
@@ -104,10 +104,10 @@ export function InputFieldControl<T extends FieldValues>(
 										}
 									}}
 									disabled={disabled}
-									type={type ?? "text"}
+									type={type ?? 'text'}
 									onChange={(e) => handleChange(e, field)}
 									className={cn(className, {
-										"border-destructive focus:!border-destructive":
+										'border-destructive focus:!border-destructive':
 											!!getFieldState(name).error
 									})}
 									{...restProps}
@@ -115,7 +115,7 @@ export function InputFieldControl<T extends FieldValues>(
 							</Box>
 						</FormControl>
 						<FormDescription>{description}</FormDescription>
-						{messageMode === "text" && <FormMessage />}
+						{messageMode === 'text' && <FormMessage />}
 					</FormItem>
 				);
 			}}
@@ -123,7 +123,7 @@ export function InputFieldControl<T extends FieldValues>(
 	);
 }
 
-InputFieldControl.displayName = "InputFieldControl";
+InputFieldControl.displayName = 'InputFieldControl';
 
 export const ForwardedRefInputFieldControl = memo(
 	forwardRef<HTMLInputElement, InputFieldControlProps<any>>(InputFieldControl)

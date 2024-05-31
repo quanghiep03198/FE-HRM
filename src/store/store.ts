@@ -1,4 +1,4 @@
-import { ConfigureStoreOptions, configureStore } from "@reduxjs/toolkit";
+import { ConfigureStoreOptions, configureStore } from '@reduxjs/toolkit';
 import {
 	FLUSH,
 	PAUSE,
@@ -8,15 +8,15 @@ import {
 	REHYDRATE,
 	persistReducer,
 	persistStore
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import rootReducer from "./root.reducer";
-import { authApi } from "./apis/@auth";
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import rootReducer from './root.reducer';
+import { authApi } from './apis/@auth';
 
 const persistConfig = {
-	key: "root",
+	key: 'root',
 	storage,
-	whitelist: ["auth"]
+	whitelist: ['auth']
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

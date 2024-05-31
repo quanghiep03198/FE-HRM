@@ -57,7 +57,10 @@ const BubbleMenu: React.FC<{ editor: Editor }> = ({ editor }) => {
 			shouldShow={(props) => props.editor.isActive('link')}>
 			<Box className='flex items-center gap-x-2 px-2'>
 				<Icon name='Globe' className='basis-[32px] text-muted-foreground' />
-				<a href={editor.getAttributes('link').href} target='_blank' className='line-clamp-1 flex-1 text-xs'>
+				<a
+					href={editor.getAttributes('link').href}
+					target='_blank'
+					className='line-clamp-1 flex-1 text-xs'>
 					{editor.getAttributes('link').href}
 				</a>
 			</Box>
@@ -84,7 +87,12 @@ const BubbleMenu: React.FC<{ editor: Editor }> = ({ editor }) => {
 									form.handleSubmit(handleEditLink)(e);
 								}}
 								className='flex items-center gap-x-2'>
-								<InputFieldControl name='href' control={form.control} type='url' className='h-8' />
+								<InputFieldControl
+									name='href'
+									control={form.control}
+									type='url'
+									className='h-8'
+								/>
 								<Button type='submit' size='sm'>
 									Áp dụng
 								</Button>

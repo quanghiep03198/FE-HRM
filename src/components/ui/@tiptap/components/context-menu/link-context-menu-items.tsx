@@ -1,8 +1,8 @@
-import useCopyToClipboard from "@/common/hooks/use-copy-to-clipboard";
-import { ContextMenuItem, ContextMenuSeparator, Icon } from "@/components/ui";
-import { Editor } from "@tiptap/react";
-import { Fragment, useMemo } from "react";
-import { toast } from "sonner";
+import useCopyToClipboard from '@/common/hooks/use-copy-to-clipboard';
+import { ContextMenuItem, ContextMenuSeparator, Icon } from '@/components/ui';
+import { Editor } from '@tiptap/react';
+import { Fragment, useMemo } from 'react';
+import { toast } from 'sonner';
 
 const LinkContextMenuItems: React.FC<{ editor: Editor }> = ({ editor }) => {
 	const [copyToClipboard, { isSuccess }] = useCopyToClipboard();
@@ -10,13 +10,13 @@ const LinkContextMenuItems: React.FC<{ editor: Editor }> = ({ editor }) => {
 		() =>
 			(
 				window.getSelection()?.anchorNode?.parentNode as HTMLAnchorElement
-			).getAttribute("href"),
+			).getAttribute('href'),
 		[window.getSelection]
 	);
 	const handleCopyLinkToClipboard = () => {
 		if (url) {
 			copyToClipboard(url);
-			if (isSuccess) toast.info("Đã sao chép vào bộ nhớ tạm");
+			if (isSuccess) toast.info('Đã sao chép vào bộ nhớ tạm');
 		}
 	};
 
@@ -25,7 +25,7 @@ const LinkContextMenuItems: React.FC<{ editor: Editor }> = ({ editor }) => {
 			<ContextMenuSeparator />
 			<ContextMenuItem
 				className='gap-x-2'
-				onClick={() => window.open(url!, "_blank")}>
+				onClick={() => window.open(url!, '_blank')}>
 				<Icon name='ArrowUpRightSquare' />
 				Mở liên kết trong tab mới
 			</ContextMenuItem>

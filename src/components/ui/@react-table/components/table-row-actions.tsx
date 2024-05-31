@@ -15,7 +15,9 @@ type DataTableRowActionsProps = {
 	onEdit?: AnonymousFunction;
 };
 
-export const DataTableRowActions: React.FC<DataTableRowActionsProps> = (props) => {
+export const DataTableRowActions: React.FC<DataTableRowActionsProps> = (
+	props
+) => {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>

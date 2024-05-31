@@ -1,6 +1,15 @@
 import useQueryParams from '@/common/hooks/use-query-params';
 import { Table } from '@tanstack/react-table';
-import { Box, Button, Icon, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../..';
+import {
+	Box,
+	Button,
+	Icon,
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue
+} from '../..';
 import Tooltip from '../../@override/tooltip';
 
 type DataTablePaginationProps<TData> = {
@@ -19,10 +28,16 @@ export default function TablePagination<TData>({
 	totalDocs
 }: DataTablePaginationProps<TData>) {
 	const canNextPage = manualPagination ? hasNextPage : table.getCanNextPage();
-	const canPreviousPage = manualPagination ? hasPrevPage : table.getCanPreviousPage();
+	const canPreviousPage = manualPagination
+		? hasPrevPage
+		: table.getCanPreviousPage();
 	const pageCount = manualPagination ? totalPages : table.getPageCount();
-	const pageSize = manualPagination ? limit : table.getState().pagination.pageSize;
-	const pageIndex = manualPagination ? page : table.getState().pagination.pageIndex + 1;
+	const pageSize = manualPagination
+		? limit
+		: table.getState().pagination.pageSize;
+	const pageIndex = manualPagination
+		? page
+		: table.getState().pagination.pageIndex + 1;
 	const [params, setParams] = useQueryParams();
 
 	const gotoFirstPage = () => {
@@ -56,8 +71,8 @@ export default function TablePagination<TData>({
 	return (
 		<Box className='flex items-center justify-between sm:justify-end'>
 			<Box className='flex-1 text-sm text-muted-foreground sm:hidden'>
-				{table.getFilteredSelectedRowModel().rows.length} / {table.getFilteredRowModel().rows.length} hàng được
-				chọn.
+				{table.getFilteredSelectedRowModel().rows.length} /{' '}
+				{table.getFilteredRowModel().rows.length} hàng được chọn.
 			</Box>
 			<Box className='flex items-center space-x-6 lg:space-x-8'>
 				<Box className='flex items-center space-x-2'>

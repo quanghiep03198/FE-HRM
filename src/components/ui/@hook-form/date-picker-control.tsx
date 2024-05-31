@@ -1,5 +1,5 @@
-import { cn } from "@/common/utils/cn";
-import { format } from "date-fns";
+import { cn } from '@/common/utils/cn';
+import { format } from 'date-fns';
 import {
 	Button,
 	Calendar,
@@ -13,11 +13,11 @@ import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger
-} from "..";
-import { FieldValues } from "react-hook-form";
-import { BaseFieldControl } from "./hook-form";
-import FormTooltipLabel from "./form-tooltip-label";
-import { useId } from "react";
+} from '..';
+import { FieldValues } from 'react-hook-form';
+import { BaseFieldControl } from './hook-form';
+import FormTooltipLabel from './form-tooltip-label';
+import { useId } from 'react';
 
 type DatePickerFieldControlProps<T extends FieldValues> = BaseFieldControl<T>;
 
@@ -31,7 +31,7 @@ export function DatePickerFieldControl<T extends FieldValues>(
 		label,
 		layout,
 		hidden,
-		messageMode = "tooltip"
+		messageMode = 'tooltip'
 	} = props;
 	const id = useId();
 
@@ -43,8 +43,8 @@ export function DatePickerFieldControl<T extends FieldValues>(
 				<FormItem
 					className={cn({
 						hidden,
-						"grid grid-cols-[1fr_2fr] items-center gap-2 space-y-0":
-							layout === "horizontal"
+						'grid grid-cols-[1fr_2fr] items-center gap-2 space-y-0':
+							layout === 'horizontal'
 					})}>
 					<FormTooltipLabel
 						htmlFor={id}
@@ -55,15 +55,15 @@ export function DatePickerFieldControl<T extends FieldValues>(
 						<PopoverTrigger asChild>
 							<FormControl>
 								<Button
-									variant={"outline"}
+									variant={'outline'}
 									id={id}
 									className={cn(
-										"flex w-full items-center justify-start space-x-2 pl-3 text-left font-normal",
-										!field.value && "text-muted-foreground"
+										'flex w-full items-center justify-start space-x-2 pl-3 text-left font-normal',
+										!field.value && 'text-muted-foreground'
 									)}>
 									<Icon name='Calendar' />
 									{field.value ? (
-										<span>{format(field.value, "PPP")}</span>
+										<span>{format(field.value, 'PPP')}</span>
 									) : (
 										<span>Pick a date</span>
 									)}
@@ -81,11 +81,11 @@ export function DatePickerFieldControl<T extends FieldValues>(
 						</PopoverContent>
 					</Popover>
 					{description && <FormDescription>{description}</FormDescription>}
-					{messageMode === "text" && <FormMessage />}
+					{messageMode === 'text' && <FormMessage />}
 				</FormItem>
 			)}
 		/>
 	);
 }
 
-DatePickerFieldControl.displayName = "DatePickerFieldControl";
+DatePickerFieldControl.displayName = 'DatePickerFieldControl';

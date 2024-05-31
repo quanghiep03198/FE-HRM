@@ -1,12 +1,12 @@
-import { Box, Icon, Typography } from "@/components/ui";
-import { Link } from "@tanstack/react-router";
-import { memo, useRef } from "react";
-import { useScrollIntoView } from "..";
+import { Box, Icon, Typography } from '@/components/ui';
+import { Link } from '@tanstack/react-router';
+import { memo, useRef } from 'react';
+import { useScrollIntoView } from '..';
 
 const SupportSection: React.FunctionComponent = () => {
 	const sectionRef = useRef<HTMLDivElement>(null);
 
-	useScrollIntoView({ hashMatch: "support", target: sectionRef.current });
+	useScrollIntoView({ hashMatch: 'support', target: sectionRef.current });
 
 	return (
 		<Box

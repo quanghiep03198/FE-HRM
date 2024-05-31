@@ -1,0 +1,13 @@
+{
+	"actions": {
+		"add": "Thêm mới",
+		"update": "Chỉnh sửa",
+		"delete": "Xóa",
+		"save": "Lưu",
+		"cancel": "Hủy",
+		"submit": "Xác nhận",
+		"continue": "Tiếp tuc",
+		"back": "Quay lại",
+		"close": "Đóng"
+	}
+}

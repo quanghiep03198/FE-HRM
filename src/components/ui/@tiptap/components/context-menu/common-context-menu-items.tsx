@@ -1,11 +1,18 @@
-import { ContextMenuItem, ContextMenuSeparator, ContextMenuShortcut, Icon } from '@/components/ui';
+import {
+	ContextMenuItem,
+	ContextMenuSeparator,
+	ContextMenuShortcut,
+	Icon
+} from '@/components/ui';
 import { Editor } from '@tiptap/react';
 import { Fragment, useEffect, useState } from 'react';
 
 const getCopiedData = async () => {
 	try {
 		const clipboardItems = await navigator.clipboard.read();
-		const type = clipboardItems[0].types.includes('text/html') ? 'text/html' : 'text/plain';
+		const type = clipboardItems[0].types.includes('text/html')
+			? 'text/html'
+			: 'text/plain';
 		return await (await clipboardItems[0].getType(type)).text();
 	} catch (err) {
 		console.log(err.name, err.message);
@@ -45,7 +52,10 @@ const CommonContextMenuItems: React.FC<{ editor: Editor }> = ({ editor }) => {
 				onClick={async () => {
 					try {
 						const coppiedData = await getCopiedData();
-						editor.commands.insertContentAt(editor.state.selection.anchor, coppiedData);
+						editor.commands.insertContentAt(
+							editor.state.selection.anchor,
+							coppiedData
+						);
 					} catch (err) {
 						console.log(err.name, err.message);
 					}
@@ -59,7 +69,10 @@ const CommonContextMenuItems: React.FC<{ editor: Editor }> = ({ editor }) => {
 				className='flex gap-x-2 whitespace-nowrap'
 				onClick={async () => {
 					const copiedData = await navigator.clipboard.readText();
-					editor.commands.insertContentAt(editor.state.selection.anchor, copiedData);
+					editor.commands.insertContentAt(
+						editor.state.selection.anchor,
+						copiedData
+					);
 				}}>
 				<Icon name='ClipboardX' />
 				Dán và không áp dụng định dạng

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const axiosInstance = axios.create({
 	baseURL: import.meta.env.VITE_BASE_URL
@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
 	(request) => {
-		const accessToken = window.localStorage.getItem("access_token");
+		const accessToken = window.localStorage.getItem('access_token');
 		request.headers.Authorization = accessToken;
 		return request;
 	},

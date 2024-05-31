@@ -14,7 +14,8 @@ export const FontSize = Extension.create({
 				attributes: {
 					fontSize: {
 						default: null,
-						parseHTML: (element) => element.style.fontSize.replace(/['"]+/g, ''),
+						parseHTML: (element) =>
+							element.style.fontSize.replace(/['"]+/g, ''),
 						renderHTML: (attributes) => {
 							if (!attributes.fontSize) {
 								return {};
@@ -40,7 +41,10 @@ export const FontSize = Extension.create({
 			unsetFontSize:
 				() =>
 				({ chain }) => {
-					return chain().setMark('textStyle', { fontSize: null }).removeEmptyTextStyle().run();
+					return chain()
+						.setMark('textStyle', { fontSize: null })
+						.removeEmptyTextStyle()
+						.run();
 				}
 		};
 	}

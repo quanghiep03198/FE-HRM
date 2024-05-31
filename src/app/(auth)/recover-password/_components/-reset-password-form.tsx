@@ -3,17 +3,17 @@ import {
 	Form as FormProvider,
 	Icon,
 	InputFieldControl
-} from "@/components/ui";
-import axiosInstance from "@/configs/axios.config";
-import { resetPasswordSchema } from "@/schemas/auth.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { AxiosError, AxiosResponse } from "axios";
-import { pick } from "lodash";
-import React from "react";
-import { useForm, useWatch } from "react-hook-form";
-import { toast } from "sonner";
-import tw from "tailwind-styled-components";
-import { z } from "zod";
+} from '@/components/ui';
+import axiosInstance from '@/configs/axios.config';
+import { resetPasswordSchema } from '@/schemas/auth.schema';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { AxiosError, AxiosResponse } from 'axios';
+import { pick } from 'lodash';
+import React from 'react';
+import { useForm, useWatch } from 'react-hook-form';
+import { toast } from 'sonner';
+import tw from 'tailwind-styled-components';
+import { z } from 'zod';
 
 type ResetPasswordFormProps = {
 	onCompleted: React.Dispatch<React.SetStateAction<boolean>>;
@@ -27,17 +27,17 @@ const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
 	const form = useForm<FormValue>({
 		resolver: zodResolver(resetPasswordSchema)
 	});
-	const tokenValue = useWatch({ name: "token", control: form.control });
+	const tokenValue = useWatch({ name: 'token', control: form.control });
 
 	const handleResetPassword = async (data: Required<FormValue>) => {
 		toast.promise(
 			axiosInstance.put(
 				`/reset-password/${tokenValue}`,
-				pick(data, ["password"])
+				pick(data, ['password'])
 			),
 			{
-				loading: "Đang xử lý yêu cầu ...",
-				success: (response: AxiosResponse["data"]) => {
+				loading: 'Đang xử lý yêu cầu ...',
+				success: (response: AxiosResponse['data']) => {
 					onCompleted(true);
 					return response?.message;
 				},

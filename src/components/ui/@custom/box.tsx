@@ -1,5 +1,5 @@
-import { cn } from "@/common/utils/cn";
-import React, { forwardRef, useRef } from "react";
+import { cn } from '@/common/utils/cn';
+import React, { forwardRef, useRef } from 'react';
 
 type TBoxProps = { as?: React.ElementType } & React.PropsWithChildren &
 	React.ComponentProps<React.ElementType>;
@@ -7,7 +7,7 @@ type TBoxProps = { as?: React.ElementType } & React.PropsWithChildren &
 export const Box: React.ForwardRefExoticComponent<TBoxProps> = forwardRef(
 	(props, ref) => {
 		const {
-			as: Component = "div",
+			as: Component = 'div',
 			className,
 			style,
 			children,

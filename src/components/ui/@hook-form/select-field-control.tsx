@@ -1,6 +1,6 @@
-import { cn } from "@/common/utils/cn";
-import React, { useId } from "react";
-import { FieldValues, Path, PathValue, useFormContext } from "react-hook-form";
+import { cn } from '@/common/utils/cn';
+import React, { useId } from 'react';
+import { FieldValues, Path, PathValue, useFormContext } from 'react-hook-form';
 import {
 	FormDescription,
 	FormField,
@@ -12,9 +12,9 @@ import {
 	SelectItem,
 	SelectTrigger,
 	SelectValue
-} from "..";
-import { BaseFieldControl } from "./hook-form";
-import FormTooltipLabel from "./form-tooltip-label";
+} from '..';
+import { BaseFieldControl } from './hook-form';
+import FormTooltipLabel from './form-tooltip-label';
 
 export type SelectFieldControlProps<T extends FieldValues> =
 	BaseFieldControl<T> &
@@ -37,7 +37,7 @@ export function SelectFieldControl<T extends FieldValues>(
 		className,
 		defaultValue,
 		placeholder,
-		messageMode = "tooltip",
+		messageMode = 'tooltip',
 		onValueChange,
 		...restProps
 	} = props;
@@ -53,8 +53,8 @@ export function SelectFieldControl<T extends FieldValues>(
 					<FormItem
 						className={cn({
 							hidden,
-							"grid grid-cols-[1fr_2fr] items-center gap-2 space-y-0":
-								layout === "horizontal"
+							'grid grid-cols-[1fr_2fr] items-center gap-2 space-y-0':
+								layout === 'horizontal'
 						})}>
 						<FormTooltipLabel
 							htmlFor={id}
@@ -71,8 +71,8 @@ export function SelectFieldControl<T extends FieldValues>(
 							}}
 							{...restProps}>
 							<SelectTrigger
-								className={cn("bg-background", className, {
-									"!border-destructive focus:!border-destructive focus:!ring-0 active:!border-destructive":
+								className={cn('bg-background', className, {
+									'!border-destructive focus:!border-destructive focus:!ring-0 active:!border-destructive':
 										!!getFieldState(name).error
 								})}
 								ref={(e) => field.ref(e)}
@@ -94,7 +94,7 @@ export function SelectFieldControl<T extends FieldValues>(
 						{props.description && (
 							<FormDescription>{props.description}</FormDescription>
 						)}
-						{messageMode === "text" && <FormMessage />}
+						{messageMode === 'text' && <FormMessage />}
 					</FormItem>
 				);
 			}}
@@ -102,7 +102,7 @@ export function SelectFieldControl<T extends FieldValues>(
 	);
 }
 
-SelectFieldControl.displayName = "SelectFieldControl";
+SelectFieldControl.displayName = 'SelectFieldControl';
 SelectFieldControl.defaultProps = {
-	placeholder: "Select..."
+	placeholder: 'Select...'
 };

@@ -16,7 +16,9 @@ import {
 	Typography
 } from '../../..';
 
-const UrlSchema = z.object({ url: z.string().url({ message: 'URL không hợp lệ' }).optional() });
+const UrlSchema = z.object({
+	url: z.string().url({ message: 'URL không hợp lệ' }).optional()
+});
 
 export const LinkPopover: React.FC<{ editor: Editor }> = ({ editor }) => {
 	const [open, setOpen] = useState<boolean>(false);
@@ -33,7 +35,12 @@ export const LinkPopover: React.FC<{ editor: Editor }> = ({ editor }) => {
 			return;
 		}
 		// update link
-		editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+		editor
+			.chain()
+			.focus()
+			.extendMarkRange('link')
+			.setLink({ href: url })
+			.run();
 		form.reset();
 		setOpen(false);
 	};
@@ -42,7 +49,10 @@ export const LinkPopover: React.FC<{ editor: Editor }> = ({ editor }) => {
 		<Popover open={open} onOpenChange={setOpen}>
 			<Tooltip content='Chèn link'>
 				<PopoverTrigger asChild>
-					<Button variant='outline' size='icon' className='aspect-square h-8 w-8'>
+					<Button
+						variant='outline'
+						size='icon'
+						className='aspect-square h-8 w-8'>
 						<Icon name='Link' />
 					</Button>
 				</PopoverTrigger>
@@ -50,8 +60,12 @@ export const LinkPopover: React.FC<{ editor: Editor }> = ({ editor }) => {
 			<PopoverContent className='w-80'>
 				<Box className='grid gap-4'>
 					<Box className='space-y-2'>
-						<Typography className='font-medium leading-none'>Chèn link</Typography>
-						<p className='text-sm text-muted-foreground'>Chèn 1 đường liên kết vào văn bản đã chọn</p>
+						<Typography className='font-medium leading-none'>
+							Chèn link
+						</Typography>
+						<p className='text-sm text-muted-foreground'>
+							Chèn 1 đường liên kết vào văn bản đã chọn
+						</p>
 					</Box>
 					<Form {...form}>
 						<form

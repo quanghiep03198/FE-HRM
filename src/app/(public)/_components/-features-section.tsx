@@ -1,31 +1,31 @@
-import { Box, Icon, TIconProps, Typography } from "@/components/ui";
-import { useRef } from "react";
-import { useScrollIntoView } from "..";
+import { Box, Icon, TIconProps, Typography } from '@/components/ui';
+import { useRef } from 'react';
+import { useScrollIntoView } from '..';
 
 type FeatureItemProps = {
-	icon: TIconProps["name"];
+	icon: TIconProps['name'];
 	title: string;
 	description: string;
 };
 
 const mainFeatures: Array<FeatureItemProps> = [
 	{
-		icon: "Users",
-		title: "Administration Work",
+		icon: 'Users',
+		title: 'Administration Work',
 		description:
-			"With a SaaS HR solution, there is no need for paperwork. All employees’ salary calculations, deductions, and perks allocations will be made automatically in the payroll system without any manual data entries. "
+			'With a SaaS HR solution, there is no need for paperwork. All employees’ salary calculations, deductions, and perks allocations will be made automatically in the payroll system without any manual data entries. '
 	},
 	{
-		icon: "LineChart",
-		title: "Performance Management",
+		icon: 'LineChart',
+		title: 'Performance Management',
 		description:
-			"By using HR software, the process becomes effortless, and the evaluation will be done in real-time based on set KPIs and targets, making the process more engaging for employees."
+			'By using HR software, the process becomes effortless, and the evaluation will be done in real-time based on set KPIs and targets, making the process more engaging for employees.'
 	},
 	{
-		icon: "FileText",
-		title: "Reporting",
+		icon: 'FileText',
+		title: 'Reporting',
 		description:
-			"HR solution provides you with a reporting dashboard where an HR manager can see turnover, headcount, overtime, time and attendance, benefits, and more to help the HR team create strategic plans and solve problems if any."
+			'HR solution provides you with a reporting dashboard where an HR manager can see turnover, headcount, overtime, time and attendance, benefits, and more to help the HR team create strategic plans and solve problems if any.'
 	}
 ];
 
@@ -33,7 +33,7 @@ const FeaturesSection: React.FunctionComponent = () => {
 	const sectionRef = useRef<HTMLDivElement>(null);
 
 	useScrollIntoView({
-		hashMatch: "outstanding-features",
+		hashMatch: 'outstanding-features',
 		target: sectionRef.current
 	});
 

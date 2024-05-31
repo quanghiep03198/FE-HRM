@@ -25,11 +25,15 @@ const ImageContextMenuItem: React.FC<{ editor: Editor }> = ({ editor }) => {
 				</ContextMenuSubTrigger>
 				<ContextMenuSubContent>
 					<ContextMenuItem asChild>
-						<Label htmlFor='editor-image-input' className='flex items-center gap-x-2'>
+						<Label
+							htmlFor='editor-image-input'
+							className='flex items-center gap-x-2'>
 							<Icon name='Upload' /> Tải lên từ máy tính
 						</Label>
 					</ContextMenuItem>
-					<ContextMenuItem className='gap-x-2' onClick={() => setImageFormOpen(true)}>
+					<ContextMenuItem
+						className='gap-x-2'
+						onClick={() => setImageFormOpen(true)}>
 						<Icon name='Link2' />
 						Theo URL
 					</ContextMenuItem>

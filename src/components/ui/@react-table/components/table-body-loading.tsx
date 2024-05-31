@@ -5,8 +5,13 @@ type DataTableLoading = {
 	prepareCols: number;
 };
 
-export function TableBodyLoading({ prepareRows, prepareCols }: DataTableLoading) {
-	const preRenderCells = Array.apply(null, Array(prepareCols)).map((_, i) => i);
+export function TableBodyLoading({
+	prepareRows,
+	prepareCols
+}: DataTableLoading) {
+	const preRenderCells = Array.apply(null, Array(prepareCols)).map(
+		(_, i) => i
+	);
 	const preRenderRows = Array.apply(null, Array(prepareRows)).map((_, j) => j);
 	return preRenderRows.map((_, i) => (
 		<TableRow key={i}>

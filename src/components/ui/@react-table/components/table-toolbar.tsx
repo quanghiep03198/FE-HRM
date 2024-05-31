@@ -18,12 +18,23 @@ type TableToolbarProps<TData> = {
 };
 
 export default function TableToolbar<TData>(props: TableToolbarProps<TData>) {
-	const { table, globalFilter, isFiltered, slot, onGlobalFilterChange, onClearAllFilters } = props;
+	const {
+		table,
+		globalFilter,
+		isFiltered,
+		slot,
+		onGlobalFilterChange,
+		onClearAllFilters
+	} = props;
 	const { isFilterOpened, setIsFilterOpened } = useContext(TableContext);
 
 	return (
 		<Box className='flex items-center justify-between sm:justify-end'>
-			<GlobalFilter table={table} globalFilter={globalFilter} onGlobalFilterChange={onGlobalFilterChange} />
+			<GlobalFilter
+				table={table}
+				globalFilter={globalFilter}
+				onGlobalFilterChange={onGlobalFilterChange}
+			/>
 
 			<Box className='grid grid-flow-col items-center gap-x-1'>
 				<Tooltip content='Xóa lọc'>
@@ -47,7 +58,11 @@ export default function TableToolbar<TData>(props: TableToolbarProps<TData>) {
 						variant='outline'
 						pressed={isFilterOpened}
 						onPressedChange={() => setIsFilterOpened(!isFilterOpened)}
-						disabled={!table.getAllColumns().some(({ columnDef }) => columnDef.enableColumnFilter)}
+						disabled={
+							!table
+								.getAllColumns()
+								.some(({ columnDef }) => columnDef.enableColumnFilter)
+						}
 						size='sm'>
 						<Icon name={isFilterOpened ? 'FilterX' : 'Filter'} />
 					</Toggle>

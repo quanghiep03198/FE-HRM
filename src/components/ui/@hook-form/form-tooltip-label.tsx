@@ -1,18 +1,18 @@
-import { cn } from "@/common/utils/cn";
-import { Icon } from "@/components/ui";
-import React from "react";
-import { FormLabel, useFormField } from "../@shadcn/form";
+import { cn } from '@/common/utils/cn';
+import { Icon } from '@/components/ui';
+import React from 'react';
+import { FormLabel, useFormField } from '../@shadcn/form';
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger
-} from "../@shadcn/tooltip";
+} from '../@shadcn/tooltip';
 
 type FormTooltipLabelProps = {
 	labelText: string;
 	htmlFor?: string;
-	messageMode: "tooltip" | "text";
+	messageMode: 'tooltip' | 'text';
 };
 
 const FormTooltipLabel: React.FC<FormTooltipLabelProps> = ({
@@ -30,7 +30,7 @@ const FormTooltipLabel: React.FC<FormTooltipLabelProps> = ({
 					className='inline-flex items-center gap-x-2'>
 					<Icon
 						name='TriangleAlert'
-						className={cn("stroke-destructive", { hidden: !error })}
+						className={cn('stroke-destructive', { hidden: !error })}
 					/>
 					<FormLabel htmlFor={htmlFor}>{labelText}</FormLabel>
 				</TooltipTrigger>
@@ -38,7 +38,7 @@ const FormTooltipLabel: React.FC<FormTooltipLabelProps> = ({
 					side='right'
 					align='end'
 					sideOffset={8}
-					hidden={messageMode !== "tooltip" || !error}
+					hidden={messageMode !== 'tooltip' || !error}
 					className='bg-destructive'>
 					{String(error?.message)}
 				</TooltipContent>

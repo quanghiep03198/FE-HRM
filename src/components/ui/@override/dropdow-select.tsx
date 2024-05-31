@@ -1,5 +1,12 @@
 import { SelectProps, SelectTriggerProps } from '@radix-ui/react-select';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '..';
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectTrigger,
+	SelectValue
+} from '..';
 import React from 'react';
 
 type DropdownSelectProps = {
@@ -35,7 +42,9 @@ export const DropdownSelect: React.FC<DropdownSelectProps> = ({
 				<SelectGroup>
 					{Array.isArray(options) &&
 						options.map((option) => (
-							<SelectItem key={option.value} value={option.value?.toString()}>
+							<SelectItem
+								key={option.value}
+								value={option.value?.toString()}>
 								{option.label}
 							</SelectItem>
 						))}

@@ -6,9 +6,14 @@ export const fuzzySort: SortingFn<any> = (rowA, rowB, columnId) => {
 
 	// Only sort by rank if the column has ranking information
 	if (rowA.columnFiltersMeta[columnId]) {
-		dir = compareItems(rowA.columnFiltersMeta[columnId]?.itemRank!, rowB.columnFiltersMeta[columnId]?.itemRank!);
+		dir = compareItems(
+			rowA.columnFiltersMeta[columnId]?.itemRank!,
+			rowB.columnFiltersMeta[columnId]?.itemRank!
+		);
 	}
 
 	// Provide an alphanumeric fallback for when the item ranks are equal
-	return dir === 0 ? sortingFns.alphanumericCaseSensitive(rowA, rowB, columnId) : dir;
+	return dir === 0
+		? sortingFns.alphanumericCaseSensitive(rowA, rowB, columnId)
+		: dir;
 };

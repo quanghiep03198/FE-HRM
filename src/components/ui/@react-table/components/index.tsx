@@ -90,22 +90,32 @@ function DataTable<TData, TValue>({
 	}, [table.getSelectedRowModel().flatRows]);
 
 	useEffect(() => {
-		if (Array.isArray(selectedRows) && selectedRows.length === 0) table.resetRowSelection();
+		if (Array.isArray(selectedRows) && selectedRows.length === 0)
+			table.resetRowSelection();
 	}, [selectedRows]);
 
 	return (
-		<TableProvider areAllFiltersCleared={columnFilters.length === 0 && globalFilter.length === 0}>
+		<TableProvider
+			areAllFiltersCleared={
+				columnFilters.length === 0 && globalFilter.length === 0
+			}>
 			<Box className='flex h-full flex-col items-stretch gap-y-4'>
 				<TableToolbar
 					table={table}
-					isFiltered={globalFilter.length !== 0 || columnFilters.length !== 0}
+					isFiltered={
+						globalFilter.length !== 0 || columnFilters.length !== 0
+					}
 					globalFilter={globalFilter}
 					onGlobalFilterChange={setGlobalFilter}
 					onClearAllFilters={clearAllFilter}
 					slot={slot}
 				/>
 				<TableDataGrid table={table} columns={columns} loading={loading} />
-				<TablePagination table={table} manualPagination={Boolean(manualPagination)} {...paginationState} />
+				<TablePagination
+					table={table}
+					manualPagination={Boolean(manualPagination)}
+					{...paginationState}
+				/>
 			</Box>
 		</TableProvider>
 	);
